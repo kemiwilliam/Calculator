@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator@kemiwilliam</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+ 
+ <style> 
+
+
+#bdy{
+       background-color: #e4e4e4;
+   }
+
+#calc {
+background-color: rgba(12, 6, 66, 0.685); 
+padding-left: 10px;
+padding-right: 20px;
+padding-top: 5px;
+padding-bottom: 10px;
+border: 2px solid rgb(2, 2, 2);
+margin:auto;
+}
+
+
+#maininput{
+    background-color: #cece8e;
+    border: 3px  inset  gold;
+    box-shadow: 2px 3px 5px 6px gray; 
+    height: 60px;
+    width: 100%;
+    font-size: 3rem;
+    color:black;
+    position: relative;
+    margin-top:   15px;
+    margin-bottom:15px;
+    }
+
+.btn {
+    display : grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    width:100%;
+    margin:auto;
+}
+
+
+.Bkey, #Ekey {
+    position: relative;
+    border-radius: 10px;
+    margin-top:     5px;
+    margin-bottom:  5px;
+    margin-left:    10px;
+    margin-right:   10px;
+    padding-left:   1px;
+    padding-right:  1px;
+    box-shadow: 1px 1px 1px 1px rgb(112, 110, 110); 
+    border: 5px  inset  #cece8e;
+    font-size : 2rem;
+    height:70px;  
+}
+
+
+#Ekey{
+      width:400%;
+     }
+
+
+</style>
+   
+
+</head>
+<body id ="bdy">
+        
+        <section id = "calc">
+
+         
+            <input type="text" id="maininput" value=0 disabled > 
+           
+            <div class = "btn">
+                <input type="button" class = "Bkey" onclick="MyClear()"   value=AC> </input>
+                <input type="button" class = "Bkey" onclick="MyDelete()"  value=Del> </input>           
+                <input type="button"  class = "Bkey" onclick="myFunction(1)"   value=1> </input> 
+                <input type="button"  class = "Bkey" onclick="myFunction(2)"   value=2> </input> 
+                <input type="button"  class = "Bkey" onclick="myFunction(3)"   value=3> </input> 
+                <input type="button"  class = "Bkey" onclick="myFunction(4)"   value=4> </input> 
+                <input type="button"  class = "Bkey" onclick="myFunction(5)"   value=5> </input> 
+                <input type="button"  class = "Bkey" onclick="myFunction(6)"   value=6> </input> 
+                <input type="button"  class = "Bkey" onclick="myFunction(7)"   value=7> </input> 
+                <input type="button"  class = "Bkey" onclick="myFunction(8)"   value=8> </input> 
+                <input type="button"  class = "Bkey" onclick="myFunction(9)"   value=9> </input> 
+                <input type="button"  class = "Bkey" onclick="myFunction(0)"   value=0> </input> 
+                <input type="button"  class = "Bkey" onclick="myFunction('.')" value=.> </input> 
+                <input type="button"  class = "Bkey" onclick="myFunction('-')"   value = - > </input> 
+                <input type="button"  class = "Bkey" onclick="myFunction('+')"   value = + > </input> 
+                <input type="button"  class = "Bkey" onclick="myFunction('/')"   value = / > </input> 
+                <input type="button"  class = "Bkey" onclick="myFunction('*')"   value = * > </input>
+                <input type="button"  class = "Bkey" onclick="fact()"            value=!> </input> 
+                <input type="button"  class = "Bkey" onclick="myFunction('%')"   value=%> </input>            
+                <input type="button"  class = "Bkey" onclick="Log()"   value= log > </input> 
+                <input type="button" class = "Bkey" onclick = "myFunction(Math.PI)"    value=PI> </input>     
+                <input type="button" class = "Bkey" onclick = "sinf()"  value=sin> </input> 
+                <input type="button" class = "Bkey" onclick = "cosf()"  value=cos> </input> 
+                <input type="button" class = "Bkey" onclick = "tanf()"  value=tan> </input> 
+                <div>  <input type="button"  id="Ekey" onclick = "equalto()" value= => </input> </div>
+                
+                <!-- kemiwilliam @ Javascript-Cal. -->
+
+            </div>
+           
+            
+        </section>
+        
+        <!-- </www.ekeminiawilliam.org> -->
+        </div>
+  
+        
+
+<script> 
+        
+    // Myclear function clears the screen to zero immediately
+     function MyClear() { document.getElementById("maininput").value = "0";  }
+    
+    
+      /*    maininput.value.substring(start, end)  mininput.value.substring(start, end) */ 
+    function MyDelete(){ maininput.value = maininput.value.substring(0, maininput.value.length-1);     }
+    
+       
+    //  on click event of the digits eg (0-9) the myFunction is called 
+    function myFunction(val){
+        if ((maininput.value.charAt(0) === "0")) {
+        maininput.value=""
+        maininput.value+=val;
+        } else {
+        document.getElementById("maininput").value += val ; }
+    }
+    
+            
+    //  log function converting Cos in Radians to Degress
+    function Log (){  maininput.value = Math.log10(maininput.value)  }
+    
+    
+    //  cosine function converting Cos in Radians to Degress
+    function cosf () {     maininput.value = Math.cos((maininput.value)*Math.PI/180)  }
+    
+    
+    //  sine function converting Math.Sine function in Radians to Degress
+    function sinf () {        return maininput.value = Math.sin((maininput.value)*Math.PI/180) }
+    
+    
+    //  Tan function converting Math.Tan function in Radians to Degress
+    function tanf () {        return maininput.value = Math.tan((maininput.value)*Math.PI/180)  }
+    
+     
+     // fact function computes the factorial of x           
+     function fact() {
+        h = (parseInt(maininput.value))
+        let result = 1;
+    
+        if (h !=0) { 
+            for(let i = h; i > 1 ; i--){
+                result = result * i;
+                maininput.value = result; 
+                // console.log(result)
+            }
+        }  
+    }
+     
+    
+    //  when function equalto is called evaluate the sting on input as a text (Operators & Operands)
+    function equalto () {
+        if ((maininput.value.charAt(0) === "")) {
+            maininput.value="0"
+        } else {
+    
+        try {    
+            // history.push(maininput.value);
+            maininput.value= eval (maininput.value);
+        } 
+        // catch every error (ie cases where input cannot be evaluated with the eval function)
+        catch (e) {
+        //  Display the type of error (e) as an error
+        maininput.value = e
+        }}
+    }
+    
+    
+    
+        
+</script>
+
+
+</body>
+</html>
